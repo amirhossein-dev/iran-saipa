@@ -1,38 +1,34 @@
 <template>
-  <q-layout>
-    <q-page-container>
-      <q-page class="q-pa-lg flex flex-center">
-        <q-card class="q-pa-md full-width" style="max-width: 400px">
-          <q-card-section class="text-center">
-            <div class="text-h6 text-primary">ورود به سامانه</div>
-          </q-card-section>
+  <q-page class="q-pa-lg flex flex-center">
+    <q-card class="q-pa-md full-width" style="max-width: 400px">
+      <q-card-section class="text-center">
+        <div class="text-h6 text-primary">ورود به سامانه</div>
+      </q-card-section>
 
-          <q-card-section class="q-gutter-md">
-            <q-input
-              filled
-              label="کد پرسنلی"
-              v-model="personnelCode"
-              type="text"
-              required
-              class="full-width"
-            />
-            <q-input
-              filled
-              label="رمز ورود"
-              v-model="password"
-              type="password"
-              required
-              class="full-width"
-            />
-          </q-card-section>
+      <q-card-section class="q-gutter-md">
+        <q-input
+          filled
+          label="کد پرسنلی"
+          v-model="personnelCode"
+          type="text"
+          required
+          class="full-width"
+        />
+        <q-input
+          filled
+          label="رمز ورود"
+          v-model="password"
+          type="password"
+          required
+          class="full-width"
+        />
+      </q-card-section>
 
-          <q-card-actions align="center">
-            <q-btn label="ورود" color="primary" class="full-width" @click="login" />
-          </q-card-actions>
-        </q-card>
-      </q-page>
-    </q-page-container>
-  </q-layout>
+      <q-card-actions align="center">
+        <q-btn label="ورود" color="primary" class="full-width" @click="login" />
+      </q-card-actions>
+    </q-card>
+  </q-page>
 </template>
 
 <script setup>

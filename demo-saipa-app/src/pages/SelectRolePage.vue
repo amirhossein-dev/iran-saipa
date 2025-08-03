@@ -1,25 +1,16 @@
 <template>
-  <q-layout>
-    <q-page-container>
-      <q-page class="q-pa-lg flex flex-center column q-gutter-md">
-        <div class="text-h5 text-primary">انتخاب سمت</div>
+  <q-page class="q-pa-lg flex flex-center column q-gutter-md">
+    <div class="text-h5 text-primary">انتخاب سمت</div>
 
-        <q-btn
-          label="سرکارگر"
-          color="primary"
-          class="full-width"
-          @click="goToDashboard('worker')"
-        />
-        <q-btn
-          label="سرپرست"
-          color="secondary"
-          class="full-width"
-          @click="goToDashboard('supervisor')"
-        />
-        <q-btn label="مدیر" color="accent" class="full-width" @click="goToDashboard('manager')" />
-      </q-page>
-    </q-page-container>
-  </q-layout>
+    <q-btn label="سرکارگر" color="primary" class="full-width" @click="goToDashboard('worker')" />
+    <q-btn
+      label="سرپرست"
+      color="secondary"
+      class="full-width"
+      @click="goToDashboard('supervisor')"
+    />
+    <q-btn label="مدیر" color="accent" class="full-width" @click="goToDashboard('manager')" />
+  </q-page>
 </template>
 
 <script setup>
