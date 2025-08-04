@@ -1,75 +1,63 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+    <transition name="splash" appear v-if="showSplash">
+      <q-page-container>
+        <SplashCover />
+      </q-page-container>
+    </transition>
+    <div v-else>
+      <q-header elevated>
+        <q-toolbar>
+          <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+          <q-toolbar-title>Iran-saipa App</q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
-      </q-toolbar>
-    </q-header>
+          <div>Version D</div>
+        </q-toolbar>
+      </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+      <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+        <q-list>
+          <q-item-label header> ارتباط با سازنده </q-item-label>
 
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
-      </q-list>
-    </q-drawer>
-
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+          <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
+        </q-list>
+      </q-drawer>
+      <q-page-container>
+        <router-view />
+      </q-page-container>
+    </div>
   </q-layout>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
-
+import SplashCover from 'src/pages/SplashCover.vue'
+const showSplash = ref(true)
+onMounted(() => {
+  setTimeout(() => {
+    showSplash.value = false
+  }, 1)
+})
 const linksList = [
   {
-    title: 'تنظیمات پایه',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
+    title: 'ایمیل',
+    caption: 'dev.saffarnia@gmail.com',
+    icon: 'email',
+    link: 'mailto:dev.saffarnia@gmail.com',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
+    title: 'لینکدین',
+    caption: 'Amirhossein در LinkedIn',
+    icon: 'link',
+    link: 'https://www.linkedin.com/in/amir-hossein-saffarnia-6276aa239/',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
+    title: 'تلفن',
+    caption: '+98 993 669 3328',
+    icon: 'phone',
+    link: 'tel:+989936693328',
   },
 ]
 
@@ -79,3 +67,29 @@ function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 </script>
+<style scoped>
+.splash-enter-from {
+  opacity: 0;
+  transform: translateY(50px);
+}
+.splash-enter-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+.splash-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.splash-leave-from {
+  opacity: 1;
+}
+.splash-leave-active {
+  transition: opacity 0.6s ease;
+}
+.splash-leave-to {
+  opacity: 0;
+  transform: 1s ease;
+}
+</style>

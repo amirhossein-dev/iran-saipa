@@ -1,6 +1,9 @@
 <template>
   <q-page class="q-pa-md">
-    <div class="text-h6 text-primary q-mb-md text-center">داشبورد سرپرست</div>
+    <q-card class="row justify-between q-px-md q-py-md q-mb-md items-center" flat>
+      <q-btn icon="chevron_left" color="black" flat @click="goBack()" round>بازگشت</q-btn>
+      <div class="text-h6 text-primary text-center">داشبورد سرپرست</div>
+    </q-card>
 
     <q-card class="q-mb-md" v-for="item in items" :key="item.id" dir="rtl">
       <q-expansion-item
@@ -30,6 +33,12 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const goBack = () => {
+  router.back()
+}
 const items = [
   {
     id: 1,

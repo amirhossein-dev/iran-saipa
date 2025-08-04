@@ -15,6 +15,7 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
+    "@capacitor/android": "^7.4.2",
     "@quasar/extras": "^1.16.4",
     "axios": "^1.2.1",
     "pinia": "^3.0.1",
@@ -23,6 +24,8 @@
     "vue-router": "^4.0.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.4.2",
+    "@capacitor/core": "^7.4.2",
     "@eslint/js": "^9.14.0",
     "@quasar/app-vite": "^2.3.0",
     "@tailwindcss/postcss": "^4.1.11",
