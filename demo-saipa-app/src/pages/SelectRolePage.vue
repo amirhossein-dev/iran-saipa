@@ -2,14 +2,14 @@
   <q-page class="q-pa-lg flex flex-center column q-gutter-md">
     <div class="text-h5 text-primary">انتخاب سمت</div>
 
-    <q-btn label="سرکارگر" color="primary" class="full-width" @click="goToDashboard('worker')" />
     <q-btn
-      label="سرپرست"
-      color="secondary"
+      v-for="role in roles"
+      :key="role.key"
+      :label="role.label"
+      :color="role.color"
       class="full-width"
-      @click="goToDashboard('supervisor')"
+      @click="goToDashboard(role.key)"
     />
-    <q-btn label="مدیر" color="accent" class="full-width" @click="goToDashboard('manager')" />
   </q-page>
 </template>
 
@@ -17,9 +17,14 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const goToDashboard = (role) => {
-  router.go(role)
-  console.log('Selected Role:', role)
-  // بعداً مسیر به صفحه مناسب بر اساس role ساخته خواهد شد
+
+const roles = [
+  { key: 'taskmaster', label: 'سرکارگر', color: 'primary' },
+  { key: 'supervisor', label: 'سرپرست', color: 'secondary' },
+  { key: 'manager', label: 'مدیر', color: 'accent' },
+]
+
+const goToDashboard = (roleKey) => {
+  router.push(`/${roleKey}`)
 }
 </script>

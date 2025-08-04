@@ -6,8 +6,8 @@ const routes = [
       { path: '', redirect: '/login' },
       { path: 'login', component: () => import('pages/LoginPage.vue') },
       { path: 'select-role', component: () => import('pages/SelectRolePage.vue') },
-      { path: 'worker-dashboard', component: () => import('pages/WorkerDashboard.vue') },
-      // سایر صفحات
+      { path: 'taskmaster', component: () => import('pages/TaskmasterDashboard.vue') },
+      { path: 'supervisor', component: () => import('pages/SupervisorDashboardPage.vue') },
     ],
   },
   {
